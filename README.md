@@ -1,7 +1,7 @@
 # WisHub 通用协议文档
 
 ![Version](https://img.shields.io/badge/version-v3.0.0-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
+![License](https://img.shields.io/badge/license-GPL--3.0-blue.svg)
 ![GitHub Stars](https://img.shields.io/github/stars/Liozhang/wishub-universal-protocol?style=social)
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)
 
@@ -344,7 +344,7 @@ WisHub 采用三层架构设计：
 
 ## 📝 许可证
 
-本项目采用 [MIT License](LICENSE) 开源。
+本项目采用 [GPL-3.0 License](LICENSE) 开源。
 
 ---
 
