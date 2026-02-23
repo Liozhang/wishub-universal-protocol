@@ -25,18 +25,18 @@ WisHubユニバーサルプロトコルは、WisHubエコシステムのコア�
 
 ## 📚 ドキュメント
 
-- [Protocol Standards](docs/01-introduction.md)
-- [WisUnit Protocol](docs/02-wisunit.md)
-- [WISE Protocol System](docs/03-wise.md)
-- [Core Intelligence Protocol](docs/04-core-intelligence.md)
-- [Agent Protocol](docs/05-agent.md)
-- [Knowledge Graph Protocol](docs/06-knowledge-graph.md)
-- [Communication Protocol](docs/07-communication.md)
-- [Security Protocol](docs/08-security.md)
-- [Domain Extension Protocol](docs/09-domain-extension.md)
-- [Economy Protocol](docs/10-economy.md)
-- [Deployment Protocol](docs/11-deployment.md)
-- [MCP/Skill Protocol](docs/12-mcp-skill.md)
+- [Protocol Standards](docs/01-introduction.md) - プロトコル標準
+- [WisUnit Protocol](docs/02-wisunit.md) - WisUnitプロトコル
+- [WISE Protocol System](docs/03-wise.md) - WISEプロトコルシステム
+- [Core Intelligence Protocol](docs/04-core-intelligence.md) - コアインテリジェンスプロトコル
+- [Agent Protocol](docs/05-agent.md) - エージェントプロトコル
+- [Knowledge Graph Protocol](docs/06-knowledge-graph.md) - ナレッジグラフプロトコル
+- [Communication Protocol](docs/07-communication.md) - 通信プロトコル
+- [Security Protocol](docs/08-security.md) - セキュリティプロトコル
+- [Domain Extension Protocol](docs/09-domain-extension.md) - ドメイン拡張プロトコル
+- [Economy Protocol](docs/10-economy.md) - エコノミープロトコル
+- [Deployment Protocol](docs/11-deployment.md) - デプロイメントプロトコル
+- [MCP/Skill Protocol](docs/12-mcp-skill.md) - MCP/Skillプロトコル
 
 ---
 

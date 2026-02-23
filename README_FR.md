@@ -25,18 +25,18 @@ Le protocole universel WisHub définit les spécifications du protocole de base 
 
 ## 📚 Documentation
 
-- [Normes de protocole](docs/01-introduction.md)
-- [Protocole WisUnit](docs/02-wisunit.md)
-- [Système de protocole WISE](docs/03-wise.md)
-- [Protocole d'intelligence de base](docs/04-core-intelligence.md)
-- [Protocole Agent](docs/05-agent.md)
-- [Protocole de graphe de connaissances](docs/06-knowledge-graph.md)
-- [Protocole de communication](docs/07-communication.md)
-- [Protocole de sécurité](docs/08-security.md)
-- [Protocole d'extension de domaine](docs/09-domain-extension.md)
-- [Protocole économique](docs/10-economy.md)
-- [Protocole de déploiement](docs/11-deployment.md)
-- [Protocole MCP/Skill](docs/12-mcp-skill.md)
+- [Normes de protocole](docs/01-introduction.md) - Normes de protocole
+- [Protocole WisUnit](docs/02-wisunit.md) - Protocole WisUnit
+- [Système de protocole WISE](docs/03-wise.md) - Système de protocole WISE
+- [Protocole d'intelligence de base](docs/04-core-intelligence.md) - Protocole d'intelligence de base
+- [Protocole Agent](docs/05-agent.md) - Protocole Agent
+- [Protocole de graphe de connaissances](docs/06-knowledge-graph.md) - Protocole de graphe de connaissances
+- [Protocole de communication](docs/07-communication.md) - Protocole de communication
+- [Protocole de sécurité](docs/08-security.md) - Protocole de sécurité
+- [Protocole d'extension de domaine](docs/09-domain-extension.md) - Protocole d'extension de domaine
+- [Protocole économique](docs/10-economy.md) - Protocole économique
+- [Protocole de déploiement](docs/11-deployment.md) - Protocole de déploiement
+- [Protocole MCP/Skill](docs/12-mcp-skill.md) - Protocole MCP/Skill
 
 ---
 
