@@ -336,9 +336,10 @@ WisHub 采用三层架构设计：
 
 ## 🌐 多语言支持
 
-- 🇨🇳 [中文](README.md) (简体中文) - 当前语言
-- 🇺🇸 [English](README_EN.md) (English) - 即将推出
-- 🇯🇵 [日本語](README_JA.md) (Japanese) - 计划中
+- 🇨🇳 [中文](README_CN.md) (简体中文) - 完整版
+- 🇺🇸 [English](README.md) (English) - 完整版
+- 🇯🇵 [日本語](README_JA.md) (日本語) - 基础版
+- 🇫🇷 [Français](README_FR.md) (法语) - 基础版
 
 ---
 
@@ -368,42 +369,6 @@ WisHub 采用三层架构设计：
 
 - **项目地址**: https://github.com/Liozhang/wishub-universal-protocol
 - **Issues**: https://github.com/Liozhang/wishub-universal-protocol/issues
-
----
-
-## 📢 传播素材
-
-### 社交媒体分享文案
-
-**Twitter**:
-```
-🚀 Introducing WisHub Universal Protocol v3.0!
-
-An open-source knowledge sharing ecosystem with 12 core protocols.
-
-🔹 39 sub-protocols
-🔹 Multi-language SDKs
-🔹 AI-native architecture
-
-Check it out: https://github.com/Liozhang/wishub-universal-protocol
-
-#WisHub #OpenSource #AI #KnowledgeGraph
-```
-
-**LinkedIn**:
-```
-🎯 WisHub v3.0 Protocol is now available!
-
-We're building future of knowledge sharing with:
-- 12 Core Protocol Systems
-- Multi-level Storage (L1/L2/L3)
-- Agent Native Design
-- Zero-Knowledge Privacy Protection
-
-Read the docs: https://github.com/Liozhang/wishub-universal-protocol
-
-#AI #KnowledgeSharing #OpenSource #Tech
-```
 
 ---
 

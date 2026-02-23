@@ -14,6 +14,7 @@ Le protocole universel WisHub définit les spécifications du protocole de base 
 > 🌐 Lire dans d'autres langues:
 > - [English](README.md) 🇺🇸
 > - [中文](README_CN.md) 🇨🇳
+> - [日本語](README_JA.md) 🇯🇵
 
 ---
 
