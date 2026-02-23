@@ -357,42 +357,6 @@ This project is licensed under the [GPL-3.0 License](LICENSE).
 
 ---
 
-## 📢 Promotional Materials
-
-### Social Media Sharing
-
-**Twitter**:
-```
-🚀 Introducing WisHub Universal Protocol v3.0!
-
-An open-source knowledge sharing ecosystem with 12 core protocols.
-
-🔹 39 sub-protocols
-🔹 Multi-language SDKs
-🔹 AI-native architecture
-
-Check it out: https://github.com/Liozhang/wishub-universal-protocol
-
-#WisHub #OpenSource #AI #KnowledgeGraph
-```
-
-**LinkedIn**:
-```
-🎯 WisHub v3.0 Protocol is now available!
-
-We're building the future of knowledge sharing with:
-- 12 Core Protocol Systems
-- Multi-level Storage (L1/L2/L3)
-- Agent Native Design
-- Zero-Knowledge Privacy Protection
-
-Read the docs: https://github.com/Liozhang/wishub-universal-protocol
-
-#AI #KnowledgeSharing #OpenSource #Tech
-```
-
----
-
 ## ⚠️ Security Best Practices
 
 - Always use the latest version of SDK
