@@ -124,6 +124,295 @@ WisHub provides official SDKs in the following languages:
 
 ---
 
+## 📝 API Usage Examples
+
+### REST API - WisUnit CRUD
+
+<details>
+<summary>📌 View Complete Example</summary>
+
+```bash
+# Create WisUnit
+curl -X POST https://api.wishub.org/v1/wisunits \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "executable": {"code": "def hello(): return '\''Hello World'\''"},
+    "structured": {"type": "function", "language": "python"},
+    "natural": "A Python function that returns Hello World"
+  }'
+
+# Query WisUnit
+curl -X GET https://api.wishub.org/v1/wisunits/{wisunit_id} \
+  -H "Authorization: Bearer YOUR_API_KEY"
+
+# Update WisUnit
+curl -X PUT https://api.wishub.org/v1/wisunits/{wisunit_id} \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"natural": "Updated description"}'
+
+# Delete WisUnit
+curl -X DELETE https://api.wishub.org/v1/wisunits/{wisunit_id} \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+</details>
+
+### REST API - Agent Registration & Invocation
+
+```bash
+# Register Agent
+curl -X POST https://api.wishub.org/v1/agents \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "WeatherAgent",
+    "type": "task_agent",
+    "capabilities": ["weather_forecast"],
+    "description": "Weather forecast Agent"
+  }'
+
+# Invoke Agent
+curl -X POST https://api.wishub.org/v1/agents/{agent_id}/invoke \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"parameters": {"location": "Beijing", "date": "2026-02-24"}}'
+```
+
+---
+
+## 🧰 SDK Usage Examples
+
+### Python SDK - WisUnit CRUD
+
+<details>
+<summary>📌 View Complete Example</summary>
+
+```python
+from wishub import Client
+
+# Initialize client
+client = Client(api_key="your-api-key", base_url="https://api.wishub.org")
+
+# Create WisUnit
+wisunit = client.wisunits.create({
+    "executable": {"code": "def hello(): return 'Hello World'"},
+    "structured": {"type": "function", "language": "python"},
+    "natural": "A Python function that returns Hello World"
+})
+
+# Query WisUnit
+wisunit = client.wisunits.get(wisunit.id)
+
+# Update WisUnit
+wisunit.natural = "Updated description"
+wisunit = wisunit.save()
+
+# Delete WisUnit
+wisunit.delete()
+```
+
+</details>
+
+### TypeScript SDK - Agent Development
+
+```typescript
+import { Client, Agent } from '@wishub/sdk';
+
+// Initialize client
+const client = new Client({
+  apiKey: 'your-api-key',
+  baseURL: 'https://api.wishub.org'
+});
+
+// Create Agent
+const agent = await client.agents.create({
+  name: 'WeatherAgent',
+  type: 'task_agent',
+  capabilities: ['weather_forecast']
+});
+
+// Invoke Agent
+const result = await agent.invoke({
+  location: 'Beijing',
+  date: '2026-02-24'
+});
+```
+
+### Go SDK - High Performance Scenarios
+
+```go
+package main
+
+import (
+    "github.com/wishub/sdk-go"
+    "context"
+)
+
+func main() {
+    client := wishub.NewClient("your-api-key")
+
+    // Create WisUnit
+    wisunit := &wishub.WisUnit{
+        Natural: "Go language example",
+        Structured: map[string]interface{}{
+            "language": "go",
+        },
+    }
+
+    err := client.WisUnits.Create(context.Background(), wisunit)
+    if err != nil {
+        panic(err)
+    }
+}
+```
+
+---
+
+## 🔗 MCP Integration
+
+### MCP Session Management
+
+<details>
+<summary>📌 View Complete Example</summary>
+
+```python
+from wishub import MCPClient
+
+# Connect to MCP service
+mcp = MCPClient(api_key="your-api-key")
+
+# Create Session
+session = mcp.sessions.create()
+print(f"Session ID: {session.id}")
+
+# Query knowledge
+result = session.query_knowledge(
+    query="WisHub three-layer architecture",
+    top_k=3,
+    filters={"domain": "architecture"}
+)
+
+for unit in result.knowledge_units:
+    print(f"- {unit.natural[:50]}...")
+
+# Close Session
+session.close()
+```
+
+</details>
+
+### MCP Integration with AI Model
+
+```python
+from wishub import MCPClient
+from openai import OpenAI
+
+# Initialize
+mcp = MCPClient(api_key="your-api-key")
+ai = OpenAI()
+
+# Create Session and get knowledge context
+session = mcp.sessions.create()
+context = session.query_knowledge(
+    query="WisHub storage mechanism",
+    top_k=5
+)
+
+# Build prompt with context
+prompt = f"""
+Answer based on the following knowledge:
+
+{chr(10).join([u.natural for u in context.knowledge_units])}
+
+Question: Explain how WisHub three-level storage works?
+"""
+
+# Call AI model
+response = ai.chat.completions.create(
+    model="gpt-4",
+    messages=[{"role": "user", "content": prompt}]
+)
+
+print(response.choices[0].message.content)
+```
+
+---
+
+## 🎯 Skill Development
+
+### Skill Registration
+
+<details>
+<summary>📌 View Complete Example</summary>
+
+```python
+from wishub import Skill
+
+# Define Skill
+skill = Skill(
+    name="data_analysis",
+    description="Data analysis Skill",
+    version="1.0.0",
+    input_schema={
+        "type": "object",
+        "properties": {
+            "data": {"type": "array"},
+            "operation": {"type": "string", "enum": ["sum", "avg", "max"]}
+        },
+        "required": ["data", "operation"]
+    }
+)
+
+# Implement execution logic
+@skill.execute
+def execute(parameters):
+    data = parameters["data"]
+    operation = parameters["operation"]
+
+    if operation == "sum":
+        return sum(data)
+    elif operation == "avg":
+        return sum(data) / len(data)
+    elif operation == "max":
+        return max(data)
+
+# Register Skill
+skill.register()
+print(f"Skill registered: {skill.id}")
+```
+
+</details>
+
+### Skill Invocation & Orchestration
+
+```python
+from wishub import Agent, Workflow
+
+# Agent invokes single Skill
+agent = Agent(name="DataAgent")
+result = agent.invoke_skill(
+    skill_name="data_analysis",
+    parameters={
+        "data": [1, 2, 3, 4, 5],
+        "operation": "avg"
+    }
+)
+print(f"Average: {result}")  # Output: 3.0
+
+# Multi-Skill orchestration
+workflow = Workflow(name="report_generation")
+workflow.add_skill("fetch_data", "data_fetch")
+workflow.add_skill("analyze", "data_analysis", depends_on=["fetch_data"])
+workflow.add_skill("generate_report", "report_writer", depends_on=["analyze"])
+
+result = workflow.execute({"source": "database"})
+print(result)
+```
+
+---
+
 ## 🏗️ Protocol Architecture
 
 ### Three-Layer Architecture

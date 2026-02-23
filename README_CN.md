@@ -131,6 +131,295 @@ WisHub提供以下语言的官方SDK：
 
 ---
 
+## 📝 API使用示例
+
+### REST API - WisUnit CRUD
+
+<details>
+<summary>📌 查看完整示例</summary>
+
+```bash
+# 创建WisUnit
+curl -X POST https://api.wishub.org/v1/wisunits \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "executable": {"code": "def hello(): return '\''Hello World'\''"},
+    "structured": {"type": "function", "language": "python"},
+    "natural": "一个返回Hello World的Python函数"
+  }'
+
+# 查询WisUnit
+curl -X GET https://api.wishub.org/v1/wisunits/{wisunit_id} \
+  -H "Authorization: Bearer YOUR_API_KEY"
+
+# 更新WisUnit
+curl -X PUT https://api.wishub.org/v1/wisunits/{wisunit_id} \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"natural": "更新后的描述"}'
+
+# 删除WisUnit
+curl -X DELETE https://api.wishub.org/v1/wisunits/{wisunit_id} \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+</details>
+
+### REST API - Agent注册与调用
+
+```bash
+# 注册Agent
+curl -X POST https://api.wishub.org/v1/agents \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "WeatherAgent",
+    "type": "task_agent",
+    "capabilities": ["weather_forecast"],
+    "description": "天气预报Agent"
+  }'
+
+# 调用Agent
+curl -X POST https://api.wishub.org/v1/agents/{agent_id}/invoke \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"parameters": {"location": "Beijing", "date": "2026-02-24"}}'
+```
+
+---
+
+## 🧰 SDK使用示例
+
+### Python SDK - WisUnit CRUD
+
+<details>
+<summary>📌 查看完整示例</summary>
+
+```python
+from wishub import Client
+
+# 初始化客户端
+client = Client(api_key="your-api-key", base_url="https://api.wishub.org")
+
+# 创建WisUnit
+wisunit = client.wisunits.create({
+    "executable": {"code": "def hello(): return 'Hello World'"},
+    "structured": {"type": "function", "language": "python"},
+    "natural": "一个返回Hello World的Python函数"
+})
+
+# 查询WisUnit
+wisunit = client.wisunits.get(wisunit.id)
+
+# 更新WisUnit
+wisunit.natural = "更新后的描述"
+wisunit = wisunit.save()
+
+# 删除WisUnit
+wisunit.delete()
+```
+
+</details>
+
+### TypeScript SDK - Agent开发
+
+```typescript
+import { Client, Agent } from '@wishub/sdk';
+
+// 初始化客户端
+const client = new Client({
+  apiKey: 'your-api-key',
+  baseURL: 'https://api.wishub.org'
+});
+
+// 创建Agent
+const agent = await client.agents.create({
+  name: 'WeatherAgent',
+  type: 'task_agent',
+  capabilities: ['weather_forecast']
+});
+
+// 调用Agent
+const result = await agent.invoke({
+  location: 'Beijing',
+  date: '2026-02-24'
+});
+```
+
+### Go SDK - 高性能场景
+
+```go
+package main
+
+import (
+    "github.com/wishub/sdk-go"
+    "context"
+)
+
+func main() {
+    client := wishub.NewClient("your-api-key")
+
+    // 创建WisUnit
+    wisunit := &wishub.WisUnit{
+        Natural: "Go语言示例",
+        Structured: map[string]interface{}{
+            "language": "go",
+        },
+    }
+
+    err := client.WisUnits.Create(context.Background(), wisunit)
+    if err != nil {
+        panic(err)
+    }
+}
+```
+
+---
+
+## 🔗 MCP集成
+
+### MCP Session管理
+
+<details>
+<summary>📌 查看完整示例</summary>
+
+```python
+from wishub import MCPClient
+
+# 连接MCP服务
+mcp = MCPClient(api_key="your-api-key")
+
+# 创建Session
+session = mcp.sessions.create()
+print(f"Session ID: {session.id}")
+
+# 查询知识
+result = session.query_knowledge(
+    query="WisHub三层架构",
+    top_k=3,
+    filters={"domain": "architecture"}
+)
+
+for unit in result.knowledge_units:
+    print(f"- {unit.natural[:50]}...")
+
+# 关闭Session
+session.close()
+```
+
+</details>
+
+### MCP与AI模型集成
+
+```python
+from wishub import MCPClient
+from openai import OpenAI
+
+# 初始化
+mcp = MCPClient(api_key="your-api-key")
+ai = OpenAI()
+
+# 创建Session并获取知识上下文
+session = mcp.sessions.create()
+context = session.query_knowledge(
+    query="WisHub的存储机制",
+    top_k=5
+)
+
+# 构建带上下文的提示词
+prompt = f"""
+基于以下知识回答问题：
+
+{chr(10).join([u.natural for u in context.knowledge_units])}
+
+问题：解释WisHub的三级存储如何工作？
+"""
+
+# 调用AI模型
+response = ai.chat.completions.create(
+    model="gpt-4",
+    messages=[{"role": "user", "content": prompt}]
+)
+
+print(response.choices[0].message.content)
+```
+
+---
+
+## 🎯 Skill开发
+
+### Skill注册
+
+<details>
+<summary>📌 查看完整示例</summary>
+
+```python
+from wishub import Skill
+
+# 定义Skill
+skill = Skill(
+    name="data_analysis",
+    description="数据分析Skill",
+    version="1.0.0",
+    input_schema={
+        "type": "object",
+        "properties": {
+            "data": {"type": "array"},
+            "operation": {"type": "string", "enum": ["sum", "avg", "max"]}
+        },
+        "required": ["data", "operation"]
+    }
+)
+
+# 实现执行逻辑
+@skill.execute
+def execute(parameters):
+    data = parameters["data"]
+    operation = parameters["operation"]
+
+    if operation == "sum":
+        return sum(data)
+    elif operation == "avg":
+        return sum(data) / len(data)
+    elif operation == "max":
+        return max(data)
+
+# 注册Skill
+skill.register()
+print(f"Skill registered: {skill.id}")
+```
+
+</details>
+
+### Skill调用与编排
+
+```python
+from wishub import Agent, Workflow
+
+# Agent调用单个Skill
+agent = Agent(name="DataAgent")
+result = agent.invoke_skill(
+    skill_name="data_analysis",
+    parameters={
+        "data": [1, 2, 3, 4, 5],
+        "operation": "avg"
+    }
+)
+print(f"Average: {result}")  # Output: 3.0
+
+# 多Skill编排
+workflow = Workflow(name="report_generation")
+workflow.add_skill("fetch_data", "data_fetch")
+workflow.add_skill("analyze", "data_analysis", depends_on=["fetch_data"])
+workflow.add_skill("generate_report", "report_writer", depends_on=["analyze"])
+
+result = workflow.execute({"source": "database"})
+print(result)
+```
+
+---
+
 ## 🏗️ 协议架构
 
 ### 三层架构
