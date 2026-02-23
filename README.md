@@ -321,10 +321,10 @@ WisHub adopts a three-layer architecture design:
 
 ## 🌐 Multi-Language Support
 
-- 🇺🇸 **English** [README.md](README.md) - Current language
+- 🇺🇸 **English** [README.md](README.md) - Complete version
 - 🇨🇳 [中文](README_CN.md) - Complete version
-- 🇯🇵 [日本語](README_JA.md) - Coming soon
-- 🇫🇷 [Français](README_FR.md) - Planned
+- 🇯🇵 [日本語](README_JA.md) - Basic version
+- 🇫🇷 [Français](README_FR.md) - Basic version
 
 ---
 
