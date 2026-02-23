@@ -236,26 +236,6 @@ For detailed migration procedures, see [WisUnit Protocol](docs/02-wisunit.md) an
 
 ---
 
-## ⚡ Performance Metrics
-
-### Storage Performance
-
-| Storage Level | Latency | Throughput | Consistency |
-|----------------|----------|-------------|--------------|
-| **L1 Memory Storage** | < 1ms | > 100K QPS | Eventual Consistency |
-| **L2 Distributed Storage** | < 10ms | > 10K QPS | Strong Consistency (Raft) |
-| **L3 Persistent Storage** | < 100ms | > 1K QPS | Strong Consistency (ACID) |
-
-### Communication Performance
-
-| Protocol | Throughput | Latency | Use Case |
-|----------|-------------|----------|----------|
-| **REST API** | 10K QPS | 10-50ms | Simple queries |
-| **WebSocket** | 1K QPS | 5-20ms | Real-time communication |
-| **gRPC** | 50K QPS | 5-10ms | High-performance services |
-
----
-
 ## 📋 Protocol List
 
 ### 1. WisUnit Protocol
@@ -360,29 +340,6 @@ For detailed API specifications, endpoints, and examples, see:
 
 ---
 
-## 📅 Version History
-
-### v3.0.0 (2026-02-23)
-
-**Added**:
-- Domain Extension Protocol (8.1)
-- MCP/Skill Protocol (11)
-- Core Agent Feedback Evolution Protocol (3.4)
-
-**Enhanced**:
-- Refactored WisUnit data model to support domain extensions
-- Optimized validation protocol to support plugin-based validation rules
-- Enhanced storage protocol to support three-level storage architecture
-
-**Fixed**:
-- Fixed compatibility issues in version migration
-- Fixed transaction rollback issues in batch operations
-
-**Removed**:
-- Removed v2.0 deprecated interfaces
-
----
-
 ## ❓ FAQ
 
 ### General
@@ -402,7 +359,7 @@ A: Yes, WisHub is licensed under [GPL-3.0](LICENSE).
 A: We provide official SDKs for Python, TypeScript, Go, Java, Rust, C#/.NET, C++, and PHP. See the [Multi-Language SDK Support](#-multi-language-sdk-support) table for details.
 
 **Q: How does the three-layer storage work?**
-A: WisHub uses L1 (memory, <1ms), L2 (distributed, <10ms), and L3 (persistent, <100ms) storage to balance performance and consistency. See the [Performance Metrics](#-performance-metrics) section for details.
+A: WisHub uses L1 (memory, <1ms), L2 (distributed, <10ms), and L3 (persistent, <100ms) storage to balance performance and consistency.
 
 **Q: How do I contribute?**
 A: See the [Contributing](#-contributing) section for step-by-step instructions.
