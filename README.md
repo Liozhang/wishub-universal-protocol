@@ -12,11 +12,25 @@
 
 ---
 
+## 🎨 Logo & Branding
+
+[![WisHub Logo](https://via.placeholder.com/200x200/4A90E2/ffffff?text=WisHub)](https://via.placeholder.com/200x200/4A90E2/ffffff?text=WisHub)
+
+**Note**: Project logo and branding assets coming soon. For now, we're using a placeholder.
+
+---
+
 ## 📖 Project Overview
 
 **Build wisdom units and a wisdom connection hub to accelerate the construction of collective human wisdom.**
 
 WisHub Universal Protocol defines the core protocol specifications for the WisHub ecosystem, covering 12 major categories including data models, storage, validation, intelligent cores, and Agent management. These protocols are designed to build an open, scalable, and high-performance knowledge sharing and intelligent service ecosystem.
+
+**Quick Navigation**:
+- [Quick Start](#-quick-start) - Get started in 3 minutes
+- [Protocol Architecture](#-protocol-architecture) - Understand the system design
+- [Documentation](#-documentation-directory) - Detailed protocol specifications
+- [FAQ](#-faq) - Common questions and answers
 
 WisHub enables:
 - **Wisdom Units (WisUnit)**: Standardized knowledge units with three-layer structure (executable, structured, natural language)
@@ -79,17 +93,17 @@ All protocol requests and responses use JSON format:
 ```python
 from wishub import Agent
 
-# Create Agent
+# Create an Agent with specified name, type, and capabilities
 agent = Agent(
     name="WeatherAgent",
     type="task_agent",
     capabilities=["weather_forecast", "weather_alert"]
 )
 
-# Register Agent
+# Register the Agent with WisHub Hub
 agent.register()
 
-# Invoke Agent
+# Invoke the Agent with parameters and get results
 result = agent.invoke({"location": "Beijing", "date": "2026-02-24"})
 ```
 
@@ -133,6 +147,53 @@ WisHub adopts a three-layer architecture design:
 └─────────────────────────────────────────┘
 ```
 
+### Overall Protocol Architecture
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                 WisHub Ecosystem                       │
+├─────────────────────────────────────────────────────────┤
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐ │
+│  │ WisUnit     │  │ WISE        │  │ Core Intel  │ │
+│  │ Protocol    │  │ Protocol    │  │ Protocol    │ │
+│  └─────────────┘  └─────────────┘  └─────────────┘ │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐ │
+│  │ Agent       │  │ Knowledge   │  │ Domain      │ │
+│  │ Protocol    │  │ Graph       │  │ Extension   │ │
+│  │             │  │ Protocol    │  │ Protocol    │ │
+│  └─────────────┘  └─────────────┘  └─────────────┘ │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐ │
+│  │ Commun-     │  │ Security    │  │ Economy     │ │
+│  │ ication    │  │ Protocol    │  │ Protocol    │ │
+│  │ Protocol    │  └─────────────┘  └─────────────┘ │
+│  └─────────────┘                                    │
+│  ┌─────────────┐  ┌─────────────┐                  │
+│  │ Deploy-     │  │ MCP/        │                  │
+│  │ ment        │  │ Skill       │                  │
+│  │ Protocol    │  │ Protocol    │                  │
+│  └─────────────┘  └─────────────┘                  │
+└─────────────────────────────────────────────────────────┘
+```
+
+**Protocol Dependencies**: All protocols communicate through standardized JSON interfaces. WisUnit serves as the core data model, WISE handles storage, and Agents consume all services through defined APIs.
+
+```
+┌─────────────────────────────────────────┐
+│   Layer 3: Natural Language Layer      │
+│   (Human-understandable knowledge)        │
+└─────────────────────────────────────────┘
+                    ↓
+┌─────────────────────────────────────────┐
+│   Layer 2: Structured Layer            │
+│   (Program/system-processable knowledge)  │
+└─────────────────────────────────────────┘
+                    ↓
+┌─────────────────────────────────────────┐
+│   Layer 1: Executable Layer            │
+│   (AI/machine/Agent-executable knowledge)│
+└─────────────────────────────────────────┘
+```
+
 ### Core Protocol Systems
 
 - **WisUnit Protocol**: Data model, CRUD operations, validation, migration for knowledge units
@@ -147,12 +208,31 @@ WisHub adopts a three-layer architecture design:
 - **Deployment Protocol**: Configuration, monitoring, and backup protocols
 - **MCP/Skill Protocol**: MCP invocation, Skill invocation, registration, discovery, orchestration
 
+### 🔄 Data Migration & Backup
+
+WisHub provides robust data migration and backup mechanisms:
+
+- **WisUnit Migration**: Seamlessly migrate WisUnits between protocol versions with automatic schema conversion
+- **Automatic Backup**: Scheduled backups to L3 persistent storage with configurable retention policies
+- **Point-in-Time Recovery**: Restore data to any specific point in time for disaster recovery
+- **Cross-Region Replication**: Optional multi-region deployment for business continuity
+
+For detailed migration procedures, see [WisUnit Protocol](docs/02-wisunit.md) and [Deployment Protocol](docs/11-deployment.md).
+
 ### 💎 Token Economic Model
 
 - **WIS Token**: WisHub ecosystem native token
-- **Usage**: Service fees, staking, governance
+- **Usage**: Service fees, staking, governance, quality incentives
 - **Total Supply**: 1 billion tokens
 - **Distribution**: 40% ecosystem incentives, 30% team, 20% investors, 10% foundation
+
+**Key Mechanisms**:
+- **Staking**: Lock WIS tokens to access premium services and earn rewards
+- **Governance**: Token holders can vote on protocol upgrades and policy changes
+- **Quality Incentives**: Rewards for high-quality WisUnits and Agent performance
+- **Service Fees**: Fees for API calls and advanced features
+
+⚠️ **Risk Disclaimer**: Cryptocurrency and token values are subject to market volatility. WisHub makes no representations or warranties about token performance. Always conduct your own research and understand the risks before participating in token-related activities.
 
 ---
 
@@ -205,6 +285,8 @@ WisHub adopts a three-layer architecture design:
 - 4.4 Agent Scheduling Protocol
 - 4.5 Agent Quality Incentive Protocol
 
+**Agent Quality Assessment**: Agents are evaluated based on accuracy, response time, user feedback, and reliability. High-performing Agents receive WIS token rewards and priority scheduling.
+
 ### 5. Knowledge Graph Protocol
 - 5.1 Graph Database Interface Protocol
 - 5.2 Knowledge Association Protocol
@@ -254,6 +336,12 @@ WisHub adopts a three-layer architecture design:
 | Real-time Communication | WebSocket | Bidirectional communication, low latency |
 | High-Performance Services | gRPC | Binary protocol, high throughput |
 
+### 📖 API Documentation
+
+For detailed API specifications, endpoints, and examples, see:
+- [Communication Protocol](docs/07-communication.md) - REST API, WebSocket, gRPC specifications
+- [OpenAPI/Swagger](https://github.com/Liozhang/wishub-universal-protocol/blob/main/docs/07-communication.md) - Interactive API documentation (coming soon)
+
 ---
 
 ## ❌ Error Code Specification
@@ -292,6 +380,48 @@ WisHub adopts a three-layer architecture design:
 
 **Removed**:
 - Removed v2.0 deprecated interfaces
+
+---
+
+## ❓ FAQ
+
+### General
+
+**Q: What is WisHub?**
+A: WisHub is an open knowledge sharing ecosystem that uses standardized protocols to enable efficient validation, storage, retrieval, and reuse of knowledge among AI agents.
+
+**Q: How do I get started?**
+A: Check out the [Quick Start](#-quick-start) section above, then explore the [Documentation Directory](#-documentation-directory) for detailed protocol specifications.
+
+**Q: Is WisHub open source?**
+A: Yes, WisHub is licensed under [GPL-3.0](LICENSE).
+
+### Technical
+
+**Q: What programming languages are supported?**
+A: We provide official SDKs for Python, TypeScript, Go, Java, Rust, C#/.NET, C++, and PHP. See the [Multi-Language SDK Support](#-multi-language-sdk-support) table for details.
+
+**Q: How does the three-layer storage work?**
+A: WisHub uses L1 (memory, <1ms), L2 (distributed, <10ms), and L3 (persistent, <100ms) storage to balance performance and consistency. See the [Performance Metrics](#-performance-metrics) section for details.
+
+**Q: How do I contribute?**
+A: See the [Contributing](#-contributing) section for step-by-step instructions.
+
+### Security
+
+**Q: How is data secured?**
+A: WisHub uses TLS 1.3 encryption, zero-knowledge proofs, and fine-grained access controls. See the [Security Best Practices](#-security-best-practices) section for more information.
+
+**Q: How do I report a security vulnerability?**
+A: Email us at security@wishub.org or use [GitHub Security Advisories](https://github.com/Liozhang/wishub-universal-protocol/security/advisories).
+
+### Token & Economy
+
+**Q: What is the WIS token used for?**
+A: WIS tokens are used for service fees, staking, governance, and quality incentives. See the [Token Economic Model](#-token-economic-model) section for details.
+
+**Q: What are the risks of participating in the token economy?**
+A: Cryptocurrency and token values are subject to market volatility. See the [Risk Disclaimer](#-token-economic-model) in the Token Economic Model section.
 
 ---
 
@@ -362,8 +492,27 @@ This project is licensed under the [GPL-3.0 License](LICENSE).
 - Always use the latest version of SDK
 - Update dependencies regularly
 - Follow the principle of least privilege
-- Enable TLS 1.3 encryption
+- Enable TLS 1.3 encryption with AES-256-GCM cipher suite
 - Use zero-knowledge proofs to protect privacy
+- Validate all incoming requests and responses
+- Use environment variables for sensitive data (API keys, tokens)
+- Enable rate limiting to prevent abuse
+- Implement proper error handling without exposing sensitive information
+
+### 🔒 Security Disclosure
+
+If you discover a security vulnerability, please report it responsibly:
+
+- **Email**: security@wishub.org
+- **GitHub Security**: [Use GitHub Security Advisories](https://github.com/Liozhang/wishub-universal-protocol/security/advisories)
+
+Please include:
+- Description of the vulnerability
+- Steps to reproduce
+- Affected versions
+- Suggested fix (if available)
+
+We will respond within 48 hours and work with you to address the issue responsibly.
 
 ---
 
