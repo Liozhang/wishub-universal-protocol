@@ -156,17 +156,17 @@ WisHub 采用三层架构设计：
 
 ### 核心协议系统
 
-- **WisUnit协议**: 知识单元的数据模型、CRUD操作、验证、迁移
-- **WISE协议系统**: 多级存储（L1内存、L2分布式、L3持久化）
-- **智核协议**: 智能核心的生成、进化、验证和反馈机制
-- **Agent协议**: Agent的注册、调用、类型、调度和质量激励
-- **知识图谱协议**: 图数据库接口和知识关联协议
-- **通信协议**: REST API、WebSocket、gRPC三种通信方式
-- **安全协议**: 认证、加密、权限、零知识证明
-- **领域扩展协议**: 领域插件注册、验证规则扩展、数据结构扩展
-- **经济模型协议**: 信用、赏金、汇率协议
-- **部署协议**: 配置、监控、备份协议
-- **MCP/Skill协议**: MCP调用、Skill调用、注册、发现、编排
+- **[WisUnit协议](docs/02-wisunit.md)**: 知识单元的数据模型、CRUD操作、验证、迁移
+- **[WISE协议系统](docs/03-wise.md)**: 多级存储（L1内存、L2分布式、L3持久化）
+- **[智核协议](docs/04-core-intelligence.md)**: 智能核心的生成、进化、验证和反馈机制
+- **[Agent协议](docs/05-agent.md)**: Agent的注册、调用、类型、调度和质量激励
+- **[知识图谱协议](docs/06-knowledge-graph.md)**: 图数据库接口和知识关联协议
+- **[通信协议](docs/07-communication.md)**: REST API、WebSocket、gRPC三种通信方式
+- **[安全协议](docs/08-security.md)**: 认证、加密、权限、零知识证明
+- **[领域扩展协议](docs/09-domain-extension.md)**: 领域插件注册、验证规则扩展、数据结构扩展
+- **[经济模型协议](docs/10-economy.md)**: 信用、赏金、汇率协议
+- **[部署协议](docs/11-deployment.md)**: 配置、监控、备份协议
+- **[MCP/Skill协议](docs/12-mcp-skill.md)**: MCP调用、Skill调用、注册、发现、编排
 
 ### 💎 Token经济模型
 
@@ -181,13 +181,13 @@ WisHub 采用三层架构设计：
 
 ## 📋 协议列表
 
-### 1. WisUnit协议
+### 1. [WisUnit协议](docs/02-wisunit.md)
 - 1.1 WisUnit数据模型协议
 - 1.2 WisUnit CRUD协议
 - 1.3 WisUnit验证协议
 - 1.4 WisUnit迁移协议
 
-### 2. WISE协议系统
+### 2. [WISE协议系统](docs/03-wise.md)
 - 2.1 WisStore协议
 - 2.2 WisSync协议
 - 2.3 WisVerify协议
@@ -195,52 +195,52 @@ WisHub 采用三层架构设计：
 - 2.5 WisDedup协议
 - 2.6 WisCache协议
 
-### 3. 智核协议
+### 3. [智核协议](docs/04-core-intelligence.md)
 - 3.1 智核生成协议
 - 3.2 智核进化协议
 - 3.3 智核验证协议
 - 3.4 智核Agent反馈进化协议
 
-### 4. Agent协议
+### 4. [Agent协议](docs/05-agent.md)
 - 4.1 Agent注册协议
 - 4.2 Agent调用协议
 - 4.3 Agent类型协议
 - 4.4 Agent调度协议
 - 4.5 Agent质量激励协议
 
-### 5. 知识图谱协议
+### 5. [知识图谱协议](docs/06-knowledge-graph.md)
 - 5.1 图数据库接口协议
 - 5.2 知识关联协议
 
-### 6. 通信协议
+### 6. [通信协议](docs/07-communication.md)
 - 6.1 REST API协议
 - 6.2 WebSocket协议
 - 6.3 gRPC协议
 
-### 7. 安全协议
+### 7. [安全协议](docs/08-security.md)
 - 7.1 认证协议
 - 7.2 加密协议
 - 7.3 权限协议
 - 7.4 零知识证明协议
 
-### 8. 领域扩展协议
+### 8. [领域扩展协议](docs/09-domain-extension.md)
 - 8.1 通用领域扩展协议
   - 8.1.1 领域插件注册协议
   - 8.1.2 领域验证规则扩展协议
   - 8.1.3 领域数据结构扩展协议
   - 8.1.4 通用领域配置协议
 
-### 9. 经济模型协议
+### 9. [经济模型协议](docs/10-economy.md)
 - 9.1 信用协议
 - 9.2 赏金协议
 - 9.3 汇率协议
 
-### 10. 部署协议
+### 10. [部署协议](docs/11-deployment.md)
 - 10.1 配置协议
 - 10.2 监控协议
 - 10.3 备份协议
 
-### 11. MCP/Skill协议
+### 11. [MCP/Skill协议](docs/12-mcp-skill.md)
 - 11.1 MCP调用协议
 - 11.2 Skill调用协议
 - 11.3 Skill注册协议

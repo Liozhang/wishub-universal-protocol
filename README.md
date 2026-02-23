@@ -155,25 +155,47 @@ WisHub adopts a three-layer architecture design:
 ├─────────────────────────────────────────────────────────┤
 │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐ │
 │  │ WisUnit     │  │ WISE        │  │ Core Intel  │ │
-│  │ Protocol    │  │ Protocol    │  │ Protocol    │ │
+│  │ [Protocol]  │  │ [Protocol]  │  │ [Protocol]  │ │
+│  │ (docs/02-   │  │ (docs/03-   │  │ (docs/04-   │ │
+│  │ wisunit.md)  │  │ wise.md)    │  │ core-intel- │ │
 │  └─────────────┘  └─────────────┘  └─────────────┘ │
 │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐ │
 │  │ Agent       │  │ Knowledge   │  │ Domain      │ │
-│  │ Protocol    │  │ Graph       │  │ Extension   │ │
-│  │             │  │ Protocol    │  │ Protocol    │ │
+│  │ [Protocol]  │  │ Graph       │  │ Extension   │ │
+│  │ (docs/05-   │  │ [Protocol]  │  │ [Protocol]  │ │
+│  │ agent.md)    │  │ (docs/06-   │  │ (docs/09-   │ │
 │  └─────────────┘  └─────────────┘  └─────────────┘ │
 │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐ │
 │  │ Commun-     │  │ Security    │  │ Economy     │ │
-│  │ ication    │  │ Protocol    │  │ Protocol    │ │
-│  │ Protocol    │  └─────────────┘  └─────────────┘ │
+│  │ ication    │  │ [Protocol]  │  │ [Protocol]  │ │
+│  │ [Protocol]  │  │ (docs/08-   │  │ (docs/10-   │ │
+│  │ (docs/07-   │  │ security.md) │  │ economy.md)  │ │
+│  │ commun-     │  └─────────────┘  └─────────────┘ │
+│  │ ication.md) │                                    │
 │  └─────────────┘                                    │
 │  ┌─────────────┐  ┌─────────────┐                  │
 │  │ Deploy-     │  │ MCP/        │                  │
 │  │ ment        │  │ Skill       │                  │
-│  │ Protocol    │  │ Protocol    │                  │
+│  │ [Protocol]  │  │ [Protocol]  │                  │
+│  │ (docs/11-   │  │ (docs/12-   │                  │
+│  │ deploy-     │  │ mcp-skill.  │                  │
+│  │ ment.md)    │  │ md)         │                  │
 │  └─────────────┘  └─────────────┘                  │
 └─────────────────────────────────────────────────────────┘
 ```
+
+**Note**: Click on protocol names to navigate to their documentation:
+- [WisUnit Protocol](docs/02-wisunit.md) - Data model and CRUD operations
+- [WISE Protocol](docs/03-wise.md) - Multi-level storage system
+- [Core Intelligence Protocol](docs/04-core-intelligence.md) - AI core mechanisms
+- [Agent Protocol](docs/05-agent.md) - Agent management
+- [Knowledge Graph Protocol](docs/06-knowledge-graph.md) - Graph database
+- [Communication Protocol](docs/07-communication.md) - REST, WebSocket, gRPC
+- [Security Protocol](docs/08-security.md) - Authentication and encryption
+- [Domain Extension Protocol](docs/09-domain-extension.md) - Plugin system
+- [Economy Protocol](docs/10-economy.md) - Token economics
+- [Deployment Protocol](docs/11-deployment.md) - Configuration and monitoring
+- [MCP/Skill Protocol](docs/12-mcp-skill.md) - Skill system
 
 **Protocol Dependencies**: All protocols communicate through standardized JSON interfaces. WisUnit serves as the core data model, WISE handles storage, and Agents consume all services through defined APIs.
 
@@ -196,17 +218,17 @@ WisHub adopts a three-layer architecture design:
 
 ### Core Protocol Systems
 
-- **WisUnit Protocol**: Data model, CRUD operations, validation, migration for knowledge units
-- **WISE Protocol System**: Multi-level storage (L1 memory, L2 distributed, L3 persistent)
-- **Core Intelligence Protocol**: Generation, evolution, validation, and feedback mechanisms for intelligent cores
-- **Agent Protocol**: Registration, invocation, type, scheduling, and quality incentives for Agents
-- **Knowledge Graph Protocol**: Graph database interface and knowledge association protocols
-- **Communication Protocol**: Three communication methods: REST API, WebSocket, gRPC
-- **Security Protocol**: Authentication, encryption, permissions, zero-knowledge proofs
-- **Domain Extension Protocol**: Domain plugin registration, validation rule extension, data structure extension
-- **Economy Protocol**: Credit, bounty, and exchange rate protocols
-- **Deployment Protocol**: Configuration, monitoring, and backup protocols
-- **MCP/Skill Protocol**: MCP invocation, Skill invocation, registration, discovery, orchestration
+- **[WisUnit Protocol](docs/02-wisunit.md)**: Data model, CRUD operations, validation, migration for knowledge units
+- **[WISE Protocol System](docs/03-wise.md)**: Multi-level storage (L1 memory, L2 distributed, L3 persistent)
+- **[Core Intelligence Protocol](docs/04-core-intelligence.md)**: Generation, evolution, validation, and feedback mechanisms for intelligent cores
+- **[Agent Protocol](docs/05-agent.md)**: Registration, invocation, type, scheduling, and quality incentives for Agents
+- **[Knowledge Graph Protocol](docs/06-knowledge-graph.md)**: Graph database interface and knowledge association protocols
+- **[Communication Protocol](docs/07-communication.md)**: Three communication methods: REST API, WebSocket, gRPC
+- **[Security Protocol](docs/08-security.md)**: Authentication, encryption, permissions, zero-knowledge proofs
+- **[Domain Extension Protocol](docs/09-domain-extension.md)**: Domain plugin registration, validation rule extension, data structure extension
+- **[Economy Protocol](docs/10-economy.md)**: Credit, bounty, and exchange rate protocols
+- **[Deployment Protocol](docs/11-deployment.md)**: Configuration, monitoring, and backup protocols
+- **[MCP/Skill Protocol](docs/12-mcp-skill.md)**: MCP invocation, Skill invocation, registration, discovery, orchestration
 
 ### 🔄 Data Migration & Backup
 
@@ -238,13 +260,13 @@ For detailed migration procedures, see [WisUnit Protocol](docs/02-wisunit.md) an
 
 ## 📋 Protocol List
 
-### 1. WisUnit Protocol
+### 1. [WisUnit Protocol](docs/02-wisunit.md)
 - 1.1 WisUnit Data Model Protocol
 - 1.2 WisUnit CRUD Protocol
 - 1.3 WisUnit Validation Protocol
 - 1.4 WisUnit Migration Protocol
 
-### 2. WISE Protocol System
+### 2. [WISE Protocol System](docs/03-wise.md)
 - 2.1 WisStore Protocol
 - 2.2 WisSync Protocol
 - 2.3 WisVerify Protocol
@@ -252,13 +274,13 @@ For detailed migration procedures, see [WisUnit Protocol](docs/02-wisunit.md) an
 - 2.5 WisDedup Protocol
 - 2.6 WisCache Protocol
 
-### 3. Core Intelligence Protocol
+### 3. [Core Intelligence Protocol](docs/04-core-intelligence.md)
 - 3.1 Core Generation Protocol
 - 3.2 Core Evolution Protocol
 - 3.3 Core Validation Protocol
 - 3.4 Core Agent Feedback Evolution Protocol
 
-### 4. Agent Protocol
+### 4. [Agent Protocol](docs/05-agent.md)
 - 4.1 Agent Registration Protocol
 - 4.2 Agent Invocation Protocol
 - 4.3 Agent Type Protocol
@@ -267,39 +289,39 @@ For detailed migration procedures, see [WisUnit Protocol](docs/02-wisunit.md) an
 
 **Agent Quality Assessment**: Agents are evaluated based on accuracy, response time, user feedback, and reliability. High-performing Agents receive WIS token rewards and priority scheduling.
 
-### 5. Knowledge Graph Protocol
+### 5. [Knowledge Graph Protocol](docs/06-knowledge-graph.md)
 - 5.1 Graph Database Interface Protocol
 - 5.2 Knowledge Association Protocol
 
-### 6. Communication Protocol
+### 6. [Communication Protocol](docs/07-communication.md)
 - 6.1 REST API Protocol
 - 6.2 WebSocket Protocol
 - 6.3 gRPC Protocol
 
-### 7. Security Protocol
+### 7. [Security Protocol](docs/08-security.md)
 - 7.1 Authentication Protocol
 - 7.2 Encryption Protocol
 - 7.3 Permission Protocol
 - 7.4 Zero-Knowledge Proof Protocol
 
-### 8. Domain Extension Protocol
+### 8. [Domain Extension Protocol](docs/09-domain-extension.md)
 - 8.1 Universal Domain Extension Protocol
   - 8.1.1 Domain Plugin Registration Protocol
   - 8.1.2 Domain Validation Rule Extension Protocol
   - 8.1.3 Domain Data Structure Extension Protocol
   - 8.1.4 Universal Domain Configuration Protocol
 
-### 9. Economy Protocol
+### 9. [Economy Protocol](docs/10-economy.md)
 - 9.1 Credit Protocol
 - 9.2 Bounty Protocol
 - 9.3 Exchange Rate Protocol
 
-### 10. Deployment Protocol
+### 10. [Deployment Protocol](docs/11-deployment.md)
 - 10.1 Configuration Protocol
 - 10.2 Monitoring Protocol
 - 10.3 Backup Protocol
 
-### 11. MCP/Skill Protocol
+### 11. [MCP/Skill Protocol](docs/12-mcp-skill.md)
 - 11.1 MCP Invocation Protocol
 - 11.2 Skill Invocation Protocol
 - 11.3 Skill Registration Protocol
